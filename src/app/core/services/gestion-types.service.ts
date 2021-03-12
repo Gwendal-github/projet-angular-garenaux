@@ -20,7 +20,7 @@ export class GestionTypesService {
 
   
   getTypes() {
-    const query = this.ts.get().subscribe(data => {
+    this.ts.get().subscribe(data => {
       var res:Type[] = []; 
       for(var i:number=0;i<data.length;i++){
         var type:Type= {id:data[i]['id'],nom:data[i]['nom'],color:data[i]['color']};

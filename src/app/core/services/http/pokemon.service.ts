@@ -9,13 +9,6 @@ import { environment } from 'src/environments/environment';
 })
 export class PokemonService {
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-    })
-  };
-
-
   endPoint: string= environment.PokemonEndPoint;
 
   constructor(private _httpClient: HttpClient) { }
@@ -33,6 +26,11 @@ export class PokemonService {
   }
 
   update(pokemon : Pokemon): Observable<Pokemon>{
-    return this._httpClient.put<Pokemon>(this.endPoint+"/"+pokemon.id,pokemon,this.httpOptions);
+    return this._httpClient.put<Pokemon>(this.endPoint+"/"+pokemon.id,pokemon);
+  }
+
+  delete(id: number) {
+    console.log(this.endPoint+"/"+id);
+    return this._httpClient.delete<Pokemon>(this.endPoint+"/"+id).subscribe();
   }
 }

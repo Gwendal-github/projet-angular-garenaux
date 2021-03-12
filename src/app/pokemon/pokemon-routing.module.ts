@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { NotFoundComponent } from '../shared/components/not-found/not-found.component';
 import { PokemonListComponent } from './pages/pokemon-list/pokemon-list.component';
 import { RouterModule, Routes } from '@angular/router';

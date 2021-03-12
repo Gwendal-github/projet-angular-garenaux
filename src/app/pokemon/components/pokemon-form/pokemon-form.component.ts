@@ -30,6 +30,7 @@ export class PokemonFormComponent implements OnInit {
   }
 
   onSubmit(pokemon: Pokemon){
+    console.log(this.pokemonForm.value);
     if(this.pokemonForm.valid){
       pokemon.typeId = this.gestionTypeService.getIdByName(this.pokemonForm.value.type);
       this.pokemonService.post(pokemon).subscribe((next)=>{
@@ -37,7 +38,7 @@ export class PokemonFormComponent implements OnInit {
       });
     }
   }
-
+  
   public noWhitespaceValidator(control: FormControl) {
     const isWhitespace = (control.value || '').trim().length === 0;
 

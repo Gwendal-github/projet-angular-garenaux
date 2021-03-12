@@ -40,9 +40,9 @@
                 <mat-form-field appearance="fill">
                     <mat-label>Type</mat-label>
                     <mat-select formControlName="type">
-                    <mat-option *ngFor="let type of types" [value]="pokemonForm.value.type">
-                        {{type}}
-                    </mat-option>
+                        <mat-option *ngFor="let type of types" [value]="type">
+                            {{type}}
+                        </mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>

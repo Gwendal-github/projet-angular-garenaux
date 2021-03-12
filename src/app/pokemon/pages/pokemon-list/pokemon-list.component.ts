@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { Pokemon } from 'src/app/core/models/pokemon';
 import { PokemonService } from 'src/app/core/services/http/pokemon.service';
 import { PokemonFormComponent } from '../../components/pokemon-form/pokemon-form.component';
-import { UpdatePokemonFormComponent } from '../../components/update-pokemon-form/update-pokemon-form.component';
 import { MatDialog } from '@angular/material/dialog';
 import { GestionTypesService } from 'src/app/core/services/gestion-types.service';
 
@@ -15,7 +14,7 @@ import { GestionTypesService } from 'src/app/core/services/gestion-types.service
 export class PokemonListComponent implements OnInit {
 
   pokemons$!: Observable<Pokemon[]>;
-  titles = ["id", "nom", "type", "update"];
+  titles = ["id", "nom", "type", "update","delete"];
 
   constructor(private _pokemonService : PokemonService, public dialog: MatDialog, private _gestionTypeService : GestionTypesService) { 
     this.pokemons$ = new Observable(() => {});
@@ -27,6 +26,7 @@ export class PokemonListComponent implements OnInit {
 
   loadData(){
     this.pokemons$ = this._pokemonService.get();
+    this.pokemons$.subscribe();
   }
 
   getTypeName(id:number){
@@ -46,6 +46,4 @@ export class PokemonListComponent implements OnInit {
       this.loadData();
     });
   }
-
-
 }
