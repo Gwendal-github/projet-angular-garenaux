@@ -29,6 +29,15 @@ export class PokemonListComponent implements OnInit {
     this.pokemons$.subscribe();
   }
 
+  async reloadData(){
+    await this.delay(100);
+    this.loadData();
+  }
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
   getTypeName(id:number){
     return this._gestionTypeService.getName(id);
   }
@@ -42,7 +51,6 @@ export class PokemonListComponent implements OnInit {
     const dialogRef = this.dialog.open(PokemonFormComponent);
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      console.log(`Dialog result: ${result}`);
       this.loadData();
     });
   }

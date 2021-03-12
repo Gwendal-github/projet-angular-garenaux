@@ -1,4 +1,3 @@
-import { Route } from '@angular/compiler/src/core';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PokemonService } from 'src/app/core/services/http/pokemon.service';
@@ -18,9 +17,13 @@ export class DeletePokemonComponent implements OnInit {
   }
 
   onClick(){
-    console.log(this.toDelete);
-    this.pokemonService.delete(this.toDelete);
-    this.router.navigateByUrl('/pokemons');
+    const x = this.pokemonService.delete(this.toDelete);
+    //await this.delay(1000);
+    x.subscribe(()=>this.router.navigateByUrl('/pokemons'));  
+  }
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
   }
 
 }

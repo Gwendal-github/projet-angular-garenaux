@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "projet-angular-api": {
+      "hosting": {
+        "projet-angular-garenaux": [
+          "projet-angular-pokemon"
+        ]
+      }
+    }
+  }
+}

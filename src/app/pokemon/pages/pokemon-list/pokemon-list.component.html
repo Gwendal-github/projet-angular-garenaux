@@ -23,8 +23,8 @@
     </ng-container>
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef>Delete</th>
-      <td mat-cell *matCellDef="let pokemon" (click)="loadData()">
-        <app-delete-pokemon [toDelete]="pokemon.id"></app-delete-pokemon>
+      <td mat-cell *matCellDef="let pokemon" >
+        <app-delete-pokemon [toDelete]="pokemon.id" (click)="reloadData()"></app-delete-pokemon>
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="titles"></tr>

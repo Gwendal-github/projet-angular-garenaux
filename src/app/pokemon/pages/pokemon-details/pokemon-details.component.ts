@@ -32,7 +32,9 @@ export class PokemonDetailsComponent implements OnInit {
     this.pokemon$.subscribe( res => {
       this.pokemon = {id:res['id'],nom:res['nom'],attaque:res['attaque'],defense:res['defense'],vitesse:res['vitesse'],typeId:res['typeId']};
       this.getTypeName();
-    });
+    },
+    (err)=>this.goBack()
+    );
   }
 
   getTypeName(){
