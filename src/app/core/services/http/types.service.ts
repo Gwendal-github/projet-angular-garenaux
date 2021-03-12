@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Type } from 'src/app/core/models/type';
 import { environment } from 'src/environments/environment';
 
@@ -23,7 +24,7 @@ export class TypesService {
   get(): Observable<Type[]>{
     return this._httpClient.get<Type[]>(this.endPoint);
   }
-
+  
   post(type : Type): Observable<Type>{
     return this._httpClient.post<Type>(this.endPoint,type);
   }
