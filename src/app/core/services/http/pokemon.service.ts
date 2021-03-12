@@ -24,6 +24,10 @@ export class PokemonService {
     return this._httpClient.get<Pokemon[]>(this.endPoint);
   }
 
+  getById(id:number): Observable<Pokemon>{
+    return this._httpClient.get<Pokemon>(this.endPoint+"/"+id);
+  }
+
   post(pokemon : Pokemon): Observable<Pokemon>{
     return this._httpClient.post<Pokemon>(this.endPoint,pokemon);
   }

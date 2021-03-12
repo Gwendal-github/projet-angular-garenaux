@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Pokemon } from 'src/app/core/models/pokemon';
+import { GestionTypesService } from 'src/app/core/services/gestion-types.service';
 import { PokemonService } from 'src/app/core/services/http/pokemon.service';
 
 @Component({
@@ -12,16 +13,16 @@ export class PokemonFormComponent implements OnInit {
 
   pokemonForm: FormGroup;
 
-  types: string[] = ['eau','feu','plante'];
+  types: String[] = this.gestionTypeService.getTypesNames();
 
 
-  constructor(private fb: FormBuilder, private pokemonService : PokemonService) { 
+  constructor(private fb: FormBuilder, private pokemonService : PokemonService,private gestionTypeService : GestionTypesService) { 
     this.pokemonForm = this.fb.group({
       nom: ['', [Validators.required, this.noWhitespaceValidator]],
       attaque: ['',[Validators.required]],
       defense: ['',[Validators.required]],
       vitesse: ['',[Validators.required]],
-      type: ['',[Validators.required, this.noWhitespaceValidator]],
+      type: ['',[Validators.required]],
     })
   }
 
@@ -30,8 +31,8 @@ export class PokemonFormComponent implements OnInit {
 
   onSubmit(pokemon: Pokemon){
     if(this.pokemonForm.valid){
+      pokemon.typeId = this.gestionTypeService.getIdByName(this.pokemonForm.value.type);
       this.pokemonService.post(pokemon).subscribe((next)=>{
-        console.log("Ajouté");
         this.pokemonForm.reset();
       });
     }

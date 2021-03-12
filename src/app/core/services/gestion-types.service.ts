@@ -29,6 +29,24 @@ export class GestionTypesService {
     });
   }
 
+  public getTypesNames(): String[]{
+    var types:String[]= [];
+    GestionTypesService.types.forEach(function(value){
+      types.push(value["nom"]);
+    });
+    return types;
+  }
+
+  public getIdByName(name:String): number{
+    var res=1;
+    GestionTypesService.types.forEach(function(value){
+      if(name==value["nom"]){
+        res = Number(value["id"]);
+      }
+    });
+    return res;
+  }
+
   public getName(id:number){
     return GestionTypesService.types[id]['nom'];
   }

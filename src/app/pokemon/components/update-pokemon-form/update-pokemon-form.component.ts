@@ -14,7 +14,7 @@ export class UpdatePokemonFormComponent implements OnInit {
 
   pokemonForm: FormGroup;
 
-  types: string[] = ['eau','feu','plante'];
+  types: String[] = this.gestionTypeService.getTypesNames();
 
 
   constructor(private fb: FormBuilder, private pokemonService : PokemonService, private gestionTypeService : GestionTypesService) { 
@@ -24,7 +24,7 @@ export class UpdatePokemonFormComponent implements OnInit {
       attaque: [PokemonListComponent.selected['attaque'],[Validators.required]],
       defense: [PokemonListComponent.selected['defense'],[Validators.required]],
       vitesse: [PokemonListComponent.selected['vitesse'],[Validators.required]],
-      type: [gestionTypeService.getName(PokemonListComponent.selected['id']),[Validators.required, this.noWhitespaceValidator]],
+      type: [gestionTypeService.getName(PokemonListComponent.selected['typeId']),[Validators.required, this.noWhitespaceValidator]],
     })
   }
 
@@ -33,7 +33,8 @@ export class UpdatePokemonFormComponent implements OnInit {
 
   onSubmit(pokemon: Pokemon){
     if(this.pokemonForm.valid){
-      this.pokemonService.post(pokemon).subscribe((next)=>{
+      pokemon.typeId = this.gestionTypeService.getIdByName(this.pokemonForm.value.type);
+      this.pokemonService.update(pokemon).subscribe((next)=>{
         console.log("Ajouté");
         this.pokemonForm.reset();
       });

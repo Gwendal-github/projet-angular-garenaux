@@ -9,12 +9,22 @@
       "typeId": 2
     },
     {
+      "id": 2,
       "nom": "Bulbizarre",
-      "typeId": 1,
-      "attaque": 17,
+      "attaque": 15,
       "defense": 10,
       "vitesse": 5,
-      "id": 2
+      "type": "Plante",
+      "typeId": 1
+    },
+    {
+      "nom": "oui",
+      "attaque": 20,
+      "defense": 20,
+      "vitesse": 20,
+      "type": "Roche",
+      "typeId": 6,
+      "id": 3
     }
   ],
   "types": [
