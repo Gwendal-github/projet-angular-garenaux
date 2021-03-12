@@ -1,0 +1,34 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Type } from 'src/app/core/models/type';
+import { environment } from 'src/environments/environment';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TypesService {
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+    })
+  };
+
+
+  endPoint: string= environment.PokemonEndPoint;
+
+  constructor(private _httpClient: HttpClient) { }
+
+  get(): Observable<Type[]>{
+    return this._httpClient.get<Type[]>(this.endPoint);
+  }
+
+  post(type : Type): Observable<Type>{
+    return this._httpClient.post<Type>(this.endPoint,type);
+  }
+
+  update(type : Type): Observable<Type>{
+    return this._httpClient.put<Type>(this.endPoint+"/"+type.id,type,this.httpOptions);
+  }
+}

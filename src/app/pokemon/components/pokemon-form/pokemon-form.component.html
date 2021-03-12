@@ -1,0 +1,57 @@
+<form [formGroup]="pokemonForm" (ngSubmit)="onSubmit(pokemonForm.value)">
+
+    <h2 mat-dialog-title>Pokemon FORM</h2>
+    <mat-dialog-content class="mat-typography">
+
+    
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>nom</mat-label>
+                    <input matInput placeholder="Jack" type="text" formControlName="nom">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>attaque</mat-label>
+                    <input matInput placeholder="20" type="number" formControlName="attaque">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>défense</mat-label>
+                    <input matInput placeholder="20" type="number" formControlName="defense">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>vitesse</mat-label>
+                    <input matInput placeholder="20" type="number" formControlName="defense">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Type</mat-label>
+                    <mat-select formControlName="type">
+                    <mat-option *ngFor="let type of types" [value]="type">
+                        {{type}}
+                    </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Annuler</button>
+        <button mat-button [mat-dialog-close]="true" type="submit" cdkFocusInstall [disabled]="!pokemonForm.valid"></button>
+    </mat-dialog-actions>
+
+</form>

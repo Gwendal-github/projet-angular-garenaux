@@ -1,0 +1,94 @@
+{
+  "pokemons": [
+    {
+      "id": 1,
+      "nom": "Salamèche",
+      "attaque": 17,
+      "defense": 10,
+      "vitesse": 5,
+      "typeId": 2
+    },
+    {
+      "nom": "Bulbizarre",
+      "typeId": 1,
+      "attaque": 17,
+      "defense": 10,
+      "vitesse": 5,
+      "id": 2
+    }
+  ],
+  "types": [
+    {
+      "id": 1,
+      "nom": "Plante"
+    },
+    {
+      "id": 2,
+      "nom": "Feu"
+    },
+    {
+      "id": 3,
+      "nom": "Eau"
+    },
+    {
+      "id": 4,
+      "nom": "Insecte"
+    },
+    {
+      "id": 5,
+      "nom": "Vol"
+    },
+    {
+      "id": 6,
+      "nom": "Roche"
+    },
+    {
+      "id": 7,
+      "nom": "Sol"
+    },
+    {
+      "id": 8,
+      "nom": "Ténébres"
+    },
+    {
+      "id": 9,
+      "nom": "Electrique"
+    },
+    {
+      "id": 10,
+      "nom": "Fée"
+    },
+    {
+      "id": 11,
+      "nom": "Acier"
+    },
+    {
+      "id": 12,
+      "nom": "Dragon"
+    },
+    {
+      "id": 13,
+      "nom": "Poison"
+    },
+    {
+      "id": 14,
+      "nom": "Psy"
+    },
+    {
+      "id": 15,
+      "nom": "Glace"
+    },
+    {
+      "id": 16,
+      "nom": "Spectre"
+    },
+    {
+      "id": 17,
+      "nom": "Combat"
+    },
+    {
+      "id": 18,
+      "nom": "Normal"
+    }
+  ]
+}
