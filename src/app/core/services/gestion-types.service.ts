@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Type } from 'src/app/core/models/type';
 import { TypesService } from 'src/app/core/services/http/types.service';
 
@@ -22,7 +23,7 @@ export class GestionTypesService {
     const query = this.ts.get().subscribe(data => {
       var res:Type[] = []; 
       for(var i:number=0;i<data.length;i++){
-        var type:Type= {id:data[i]['id'],nom:data[i]['nom']};
+        var type:Type= {id:data[i]['id'],nom:data[i]['nom'],color:data[i]['color']};
         res[i+1] = type;
       }
       GestionTypesService.types = res;
@@ -47,7 +48,15 @@ export class GestionTypesService {
     return res;
   }
 
+  public getTypeById(id:number): Observable<Type> {
+    return this.ts.getById(id);
+  }
+
   public getName(id:number){
     return GestionTypesService.types[id]['nom'];
+  }
+
+  public getColor(id:number){
+    return GestionTypesService.types[id]['color'];
   }
 }

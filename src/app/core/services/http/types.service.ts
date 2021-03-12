@@ -25,6 +25,10 @@ export class TypesService {
     return this._httpClient.get<Type[]>(this.endPoint);
   }
 
+  getById(id:number):Observable<Type>{
+    return this._httpClient.get<Type>(this.endPoint+"/"+id);
+  }
+
   post(type : Type): Observable<Type>{
     return this._httpClient.post<Type>(this.endPoint,type);
   }

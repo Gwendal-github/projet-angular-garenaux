@@ -1,6 +1,29 @@
-{{ pokemon.id }}
-{{ pokemon.nom }}
-{{ pokemon.attaque }}
-{{ pokemon.defense }}
-{{ pokemon.vitesse }}
-{{ pokemon.typeId }}
+<h1 [style.color]="type['color']">{{ pokemon.nom }}</h1>
+
+<div>
+    <h2> Numéro#{{ pokemon.id }} </h2>
+    <h2>{{ type['nom'] }}</h2>
+</div>
+
+<table>
+    <tr>
+        <td>Attaque</td>
+        <td>{{ pokemon.attaque }}</td>
+    </tr>
+    <tr>
+        <td>Défense</td>
+        <td>{{ pokemon.defense }}</td>
+    </tr>
+    <tr>
+        <td>Vitesse</td>
+        <td>{{ pokemon.vitesse }}</td>
+    </tr>
+</table>
+
+<button mat-fab color="warn" (click)="openDialog2(pokemon)">
+    <mat-icon>settings</mat-icon>
+</button>
+
+
+
+

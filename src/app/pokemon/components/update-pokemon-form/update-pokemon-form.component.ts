@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Pokemon } from 'src/app/core/models/pokemon';
 import { GestionTypesService } from 'src/app/core/services/gestion-types.service';
 import { PokemonService } from 'src/app/core/services/http/pokemon.service';
+import { PokemonDetailsComponent } from '../../pages/pokemon-details/pokemon-details.component';
 import { PokemonListComponent } from '../../pages/pokemon-list/pokemon-list.component';
 
 @Component({
@@ -19,12 +20,12 @@ export class UpdatePokemonFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private pokemonService : PokemonService, private gestionTypeService : GestionTypesService) { 
     this.pokemonForm = this.fb.group({
-      id: [PokemonListComponent.selected['id'],[Validators.required]],
-      nom: [PokemonListComponent.selected['nom'], [Validators.required, this.noWhitespaceValidator]],
-      attaque: [PokemonListComponent.selected['attaque'],[Validators.required]],
-      defense: [PokemonListComponent.selected['defense'],[Validators.required]],
-      vitesse: [PokemonListComponent.selected['vitesse'],[Validators.required]],
-      type: [gestionTypeService.getName(PokemonListComponent.selected['typeId']),[Validators.required, this.noWhitespaceValidator]],
+      id: [PokemonDetailsComponent.selected['id'],[Validators.required]],
+      nom: [PokemonDetailsComponent.selected['nom'], [Validators.required, this.noWhitespaceValidator]],
+      attaque: [PokemonDetailsComponent.selected['attaque'],[Validators.required]],
+      defense: [PokemonDetailsComponent.selected['defense'],[Validators.required]],
+      vitesse: [PokemonDetailsComponent.selected['vitesse'],[Validators.required]],
+      type: [gestionTypeService.getName(PokemonDetailsComponent.selected['typeId']),[Validators.required, this.noWhitespaceValidator]],
     })
   }
 

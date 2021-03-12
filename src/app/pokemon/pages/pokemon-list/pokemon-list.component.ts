@@ -15,7 +15,6 @@ import { GestionTypesService } from 'src/app/core/services/gestion-types.service
 export class PokemonListComponent implements OnInit {
 
   pokemons$!: Observable<Pokemon[]>;
-  static selected: Pokemon;
   titles = ["id", "nom", "type", "update"];
 
   constructor(private _pokemonService : PokemonService, public dialog: MatDialog, private _gestionTypeService : GestionTypesService) { 
@@ -34,23 +33,16 @@ export class PokemonListComponent implements OnInit {
     return this._gestionTypeService.getName(id);
   }
 
+  getTypeColor(id:number){
+    return this._gestionTypeService.getColor(id);
+  }
+
   openDialog(){
 
     const dialogRef = this.dialog.open(PokemonFormComponent);
 
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log(`Dialog result: ${result}`);
-      this.loadData();
-    });
-  }
-
-  openDialog2(pokemon: Pokemon){
-    PokemonListComponent.selected= pokemon;
-
-    const dialogRef = this.dialog.open(UpdatePokemonFormComponent);
-
-    dialogRef.afterClosed().subscribe(() => {
-
       this.loadData();
     });
   }

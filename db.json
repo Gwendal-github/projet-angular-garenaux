@@ -18,87 +18,105 @@
       "typeId": 1
     },
     {
-      "nom": "oui",
-      "attaque": 20,
+      "id": 3,
+      "nom": "perhaps",
+      "attaque": 15,
       "defense": 20,
       "vitesse": 20,
       "type": "Roche",
-      "typeId": 6,
-      "id": 3
+      "typeId": 6
     }
   ],
   "types": [
     {
       "id": 1,
-      "nom": "Plante"
+      "nom": "Plante",
+      "color": "#008000"
     },
     {
       "id": 2,
-      "nom": "Feu"
+      "nom": "Feu",
+      "color": "#FFA500"
     },
     {
       "id": 3,
-      "nom": "Eau"
+      "nom": "Eau",
+      "color": "#1E90FF"
     },
     {
       "id": 4,
-      "nom": "Insecte"
+      "nom": "Insecte",
+      "color": "#ADFF2F"
     },
     {
       "id": 5,
-      "nom": "Vol"
+      "nom": "Vol",
+      "color": "#87CEFA"
     },
     {
       "id": 6,
-      "nom": "Roche"
+      "nom": "Roche",
+      "color": "#D2691E"
     },
     {
       "id": 7,
-      "nom": "Sol"
+      "nom": "Sol",
+      "color": "#B8860B"
     },
     {
       "id": 8,
-      "nom": "Ténébres"
+      "nom": "Ténébres",
+      "color": "#000000"
     },
     {
       "id": 9,
-      "nom": "Electrique"
+      "nom": "Electrique",
+      "color": "#FFFF00"
     },
     {
       "id": 10,
-      "nom": "Fée"
+      "nom": "Fée",
+      "color": "#C71585"
     },
     {
       "id": 11,
-      "nom": "Acier"
+      "nom": "Acier",
+      "color": "#D3D3D3"
     },
     {
       "id": 12,
-      "nom": "Dragon"
+      "nom": "Dragon",
+      "color": "#9370DB"
     },
     {
       "id": 13,
-      "nom": "Poison"
+      "nom": "Poison",
+      "color": "#9400D3"
     },
     {
       "id": 14,
-      "nom": "Psy"
+      "nom": "Psy",
+      "color": "#FF69B4"
     },
     {
       "id": 15,
-      "nom": "Glace"
+      "nom": "Glace",
+      "color": "#E0FFFF"
     },
     {
       "id": 16,
-      "nom": "Spectre"
+      "nom": "Spectre",
+      "color": "#4B0082"
     },
     {
       "id": 17,
-      "nom": "Combat"
+      "nom": "Combat",
+      "color": "#800000"
     },
     {
       "id": 18,
-      "nom": "Normal"
+      "nom": "Normal",
+      "color": "#F8F8FF"
     }
   ]
 }
