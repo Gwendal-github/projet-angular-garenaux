@@ -24,7 +24,7 @@ export class TypesService {
   get(): Observable<Type[]>{
     return this._httpClient.get<Type[]>(this.endPoint);
   }
-  
+
   post(type : Type): Observable<Type>{
     return this._httpClient.post<Type>(this.endPoint,type);
   }
@@ -32,4 +32,6 @@ export class TypesService {
   update(type : Type): Observable<Type>{
     return this._httpClient.put<Type>(this.endPoint+"/"+type.id,type,this.httpOptions);
   }
+
+
 }

@@ -6,11 +6,12 @@ import { PokemonListComponent } from './pages/pokemon-list/pokemon-list.componen
 import { PokemonFormComponent } from './components/pokemon-form/pokemon-form.component';
 import { UpdatePokemonFormComponent } from './components/update-pokemon-form/update-pokemon-form.component';
 import { PokemonComponent } from './pokemon.component';
+import { PokemonDetailsComponent } from './pages/pokemon-details/pokemon-details.component';
 
 
 
 @NgModule({
-  declarations: [PokemonComponent, PokemonListComponent, PokemonFormComponent, UpdatePokemonFormComponent],
+  declarations: [PokemonComponent, PokemonListComponent, PokemonFormComponent, UpdatePokemonFormComponent, PokemonDetailsComponent],
   imports: [
     CommonModule,
     PokemonRoutingModule,

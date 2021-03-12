@@ -4,6 +4,7 @@ import { NotFoundComponent } from '../shared/components/not-found/not-found.comp
 import { PokemonListComponent } from './pages/pokemon-list/pokemon-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PokemonComponent } from './pokemon.component';
+import { PokemonDetailsComponent } from './pages/pokemon-details/pokemon-details.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,10 @@ const routes: Routes = [
       {
         path: 'pokemons',
         component: PokemonListComponent
+      },
+      {
+        path: 'pokemons/details/:id',
+        component: PokemonDetailsComponent
       },
       {
         path: '**',
