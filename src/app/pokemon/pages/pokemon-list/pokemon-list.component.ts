@@ -13,7 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class PokemonListComponent implements OnInit {
 
-  pokemons$: Observable<Pokemon[]>;
+  pokemons$!: Observable<Pokemon[]> | undefined;
   static selected: Pokemon;
   titles = ["id", "nom", "type", "update"];
 

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  PokemonEndPoint: 'http://localhost:3000/pokemons'
+  PokemonEndPoint: 'http://localhost:3000/pokemons',
+  TypeEndPoint: 'http://localhost:3000/types'
 };
 
 /*

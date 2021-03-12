@@ -16,7 +16,7 @@ export class TypesService {
   };
 
 
-  endPoint: string= environment.PokemonEndPoint;
+  endPoint: string= environment.TypeEndPoint;
 
   constructor(private _httpClient: HttpClient) { }
 
