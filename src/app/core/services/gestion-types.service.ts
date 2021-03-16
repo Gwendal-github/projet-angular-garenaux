@@ -39,7 +39,7 @@ export class GestionTypesService {
   }
 
   public getIdByName(name:String): number{
-    var res=1;
+    var res=-1;
     GestionTypesService.types.forEach(function(value){
       if(name==value["nom"]){
         res = Number(value["id"]);
@@ -53,10 +53,19 @@ export class GestionTypesService {
   }
 
   public getName(id:number){
-    return GestionTypesService.types[id]['nom'];
+    if(GestionTypesService.types[id]!= undefined) {
+      return GestionTypesService.types[id]['nom'];
+    } else {
+      return "Unknown";
+    }
+    
   }
 
   public getColor(id:number){
-    return GestionTypesService.types[id]['color'];
+    if(GestionTypesService.types[id]!= undefined) {
+      return GestionTypesService.types[id]['color'];
+    } else {
+      return "#ffffff";
+    }
   }
 }

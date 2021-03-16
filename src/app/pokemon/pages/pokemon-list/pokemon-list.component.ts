@@ -30,20 +30,12 @@ export class PokemonListComponent implements OnInit {
   }
 
   async reloadData(){
-    await this.delay(100);
+    await new Promise( resolve => setTimeout(resolve, 100) );
     this.loadData();
-  }
-
-  delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
   }
 
   getTypeName(id:number){
     return this._gestionTypeService.getName(id);
-  }
-
-  getTypeColor(id:number){
-    return this._gestionTypeService.getColor(id);
   }
 
   openDialog(){

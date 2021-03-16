@@ -40,7 +40,7 @@ export class PokemonDetailsComponent implements OnInit {
 
   getTypeName(){
     var type$:Observable<Type> = this.gestionTypeService.getTypeById(this.pokemon['typeId']);
-    type$.subscribe(res => { this.type = res ;});
+    type$.subscribe(res => { this.type = res; },(err) => { this.type = {id:-1,nom:"Unknown",color:'#ffffff'};console.log(this.type)});
   }
 
   ngOnInit(): void {
@@ -63,7 +63,6 @@ export class PokemonDetailsComponent implements OnInit {
 
   determineFontColor(color : string):string{
     var rgb = this.hexToRgb(color);
-    console.log(rgb);
     var OpositeColor = ((0.3 * (rgb.r)) + (0.59 * (rgb.g)) + (0.11 * (rgb?.b)) <= 128) ? '#FFF' : '#000';
     return OpositeColor;
   }
