@@ -1,0 +1,37 @@
+<form [formGroup]="typeForm" (ngSubmit)="onSubmit(typeForm.value)">
+
+    <h2 mat-dialog-title>Ajouter un nouveau Type</h2>
+    <mat-dialog-content class="mat-typography">
+
+    
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>nom</mat-label>
+                    <input matInput placeholder="Feu" type="text" formControlName="nom">                    
+                </mat-form-field>
+            </div>
+
+            <div >
+                <mat-form-field [style.border-radius]="18">
+                    <mat-label >Couleur</mat-label>
+                    <input matInput placeholder="#FFFFFF" formControlName="color" [(ngModel)]="color" />
+                </mat-form-field>
+                    
+            </div>
+
+            <div id="div_apercu">
+                <mat-label >Aperçu :</mat-label>
+                <div [style.background]="color" id="apercu">
+                </div>
+            </div>
+                
+
+
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Annuler</button>
+        <button mat-button [mat-dialog-close]="true" type="submit" cdkFocusInstall [disabled]="!typeForm.valid">Ajout</button>
+    </mat-dialog-actions>
+
+</form>

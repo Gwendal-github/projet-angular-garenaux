@@ -5,7 +5,25 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pokemon/pokemon.module').then(m => m.PokemonModule)
+      children: [
+        {
+          path: '',
+          pathMatch: 'full',
+          redirectTo: "pokemons"
+        },
+        {
+          path:'pokemons',
+          loadChildren: () => import('./pokemon/pokemon.module').then(m => m.PokemonModule)
+        },
+        {
+          path: 'types',
+          loadChildren: () => import('./types/types.module').then(m => m.TypesModule)
+        },
+        {
+          path: '**',
+          component: NotFoundComponent
+        }
+      ]
   },
   {
     path: '**',

@@ -14,14 +14,14 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: "pokemons"
+        redirectTo: "list"
       },
       {
-        path: 'pokemons',
+        path: 'list',
         component: PokemonListComponent
       },
       {
-        path: 'pokemons/details/:id',
+        path: 'details/:id',
         component: PokemonDetailsComponent
       },
       {
