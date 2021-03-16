@@ -21,6 +21,7 @@ export class PokemonDetailsComponent implements OnInit {
   pokemon: Pokemon = {id:0,nom:"",attaque:0,defense:0,vitesse:0,typeId:1};
   type !: Type;
   static selected: Pokemon;
+  color: string='';
 
   constructor( public dialog: MatDialog,private route: ActivatedRoute, private location: Location,private pokemonService: PokemonService,private gestionTypeService : GestionTypesService) {
     this.pokemon$ = new Observable(() => {});
@@ -59,5 +60,26 @@ export class PokemonDetailsComponent implements OnInit {
       this.loadData();
     });
   }
+
+  determineFontColor(color : string):string{
+    var rgb = this.hexToRgb(color);
+    console.log(rgb);
+    var OpositeColor = ((0.3 * (rgb.r)) + (0.59 * (rgb.g)) + (0.11 * (rgb?.b)) <= 128) ? '#FFF' : '#000';
+    return OpositeColor;
+  }
+
+  hexToRgb(hex: string) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : {
+      r: 0,
+      g: 0,
+      b: 0
+    };
+  }
+  
 
 }
