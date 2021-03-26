@@ -5,6 +5,7 @@ import { Type } from 'src/app/core/models/type';
 import { GestionTypesService } from 'src/app/core/services/gestion-types.service';
 import { TypesService } from 'src/app/core/services/http/types.service';
 import { TypesFormComponent } from '../../components/types-form/types-form.component';
+import { UpdateTypeFormComponent } from '../../components/update-type-form/update-type-form.component';
 
 @Component({
   selector: 'app-types-list',
@@ -14,7 +15,8 @@ import { TypesFormComponent } from '../../components/types-form/types-form.compo
 export class TypesListComponent implements OnInit {
 
   types$!: Observable<Type[]>;
-  titles = ["typeID","typeNom","typeColor"];
+  titles = ["typeID","typeNom","typeColor","update"];
+  static selected: Type;
 
   constructor( public dialog: MatDialog, private _gestionTypeService : GestionTypesService, private _typeService: TypesService) { 
     this.types$ = new Observable(() => {});
@@ -37,6 +39,16 @@ export class TypesListComponent implements OnInit {
   openDialog(){
 
     const dialogRef = this.dialog.open(TypesFormComponent);
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      this.loadData();
+    });
+  }
+
+  openDialogUpdate(selectedType:Type){
+
+    TypesListComponent.selected = selectedType;
+    const dialogRef = this.dialog.open(UpdateTypeFormComponent);
 
     dialogRef.afterClosed().subscribe((result: any) => {
       this.loadData();

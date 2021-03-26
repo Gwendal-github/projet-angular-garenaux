@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TypesDetailsComponent } from './types-details.component';
+import { UpdateTypeFormComponent } from './update-type-form.component';
 
-describe('TypesDetailsComponent', () => {
-  let component: TypesDetailsComponent;
-  let fixture: ComponentFixture<TypesDetailsComponent>;
+describe('UpdateTypeFormComponent', () => {
+  let component: UpdateTypeFormComponent;
+  let fixture: ComponentFixture<UpdateTypeFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TypesDetailsComponent ]
+      declarations: [ UpdateTypeFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TypesDetailsComponent);
+    fixture = TestBed.createComponent(UpdateTypeFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
